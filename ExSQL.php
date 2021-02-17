@@ -142,3 +142,34 @@ mysql> ALTER TABLE frameworks
     -> CHANGE versions version INT;
 Query OK, 0 rows affected (0.00 sec)
 Enregistrements: 0  Doublons: 0  Avertissements: 0
+
+//ex4-Dans la base de données webDevelopment, dans la table frameworks, renommer la colonne name en framework.
+mysql> ALTER TABLE frameworks
+    -> CHANGE name frameworks VARCHAR(100);
+Query OK, 0 rows affected (0.00 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+
+//ex5-Dans la base de données webDevelopment, dans la table frameworks changer le type de la colonne version en VARCHAR de taille 10.
+mysql> ALTER TABLE frameworks
+    -> MODIFY version VARCHAR(10);
+Query OK, 0 rows affected (0.01 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+
+//TP
+mysql> USE codex;
+Database changed
+ALTER TABLE clients DROP COLUMN secondPhoneNumber;
+Query OK, 0 rows affected (0.01 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+ALTER TABLE clients CHANGE firstPhoneNumber phoneNumber INT;
+Query OK, 0 rows affected (0.00 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+ALTER TABLE clients MODIFY phoneNumber VARCHAR(10);
+Query OK, 0 rows affected (0.01 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+ALTER TABLE clients ADD zipCode VARCHAR(100);
+Query OK, 0 rows affected (0.01 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
+ALTER TABLE clients ADD city VARCHAR(100);
+Query OK, 0 rows affected (0.01 sec)
+Enregistrements: 0  Doublons: 0  Avertissements: 0
