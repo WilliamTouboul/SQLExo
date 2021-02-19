@@ -173,3 +173,124 @@ Enregistrements: 0  Doublons: 0  Avertissements: 0
 ALTER TABLE clients ADD city VARCHAR(100);
 Query OK, 0 rows affected (0.01 sec)
 Enregistrements: 0  Doublons: 0  Avertissements: 0
+
+
+
+//PARTIE4
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+//ex1
+INSERT INTO languages (languages,versions)
+VALUES
+('javascript', 'version 5'),
+('php', 'version5.2'),
+('html', 'version5.4'),
+('javascript', 'version 6'),
+('javascript', 'version 7'),
+('javascript', 'version 8'),
+('php', 'version 7');
+
+//ex2
+INSERT INTO frameworks (frameworks,version)
+VALUES
+('Symfony', 'version 2.8'),
+('Symfony', 'version 3'),
+('Jquery', 'version 1.6'),
+('Jquery','version 2.10');
+
+//PARTIE5
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+On va register en .SQL POUR LA SUITE. PARCE QUE.
+
+//Ex 1
+SELECT * FROM languages;
+
+//Ex 2
+SELECT * FROM languages WHERE languages='PHP';
+
+//ex3
+SELECT * FROM languages WHERE (languages='php' OR languages='javascript');
+
+//Ex4
+SELECT * FROM languages WHERE id IN ('3','5','7');
+
+//Ex5
+SELECT * FROM languages WHERE languages='javascript' LIMIT 2;
+
+//Ex6
+SELECT * FROM languages WHERE languages!='php'; 
+
+//Ex7
+SELECT * FROM languages ORDER BY languages;
+
+
+//PARTIE6
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+//Ex1
+SELECT * FROM ide WHERE version LIKE '3.%';
+
+//Ex2
+SELECT * FROM ide WHERE id='1' OR id='3';
+
+//Ex3
+SELECT * FROM ide WHERE ide.date BETWEEN '2010-01-01' AND '2011-12-31';
+
+
+
+//PARTIE7
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+//Ex1
+DELETE FROM languages WHERE languages='HTML';
+SELECT * FROM languages;
+
+//Ex2
+UPDATE frameworks
+SET frameworks = 'symfony2' WHERE frameworks='symfony';
+
+//Ex3
+UPDATE languages SET versions='5.1' WHERE languages='javascript' AND versions='version 5';
+SELECT * FROM languages;
+
+//PARTIE8
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+
+//Ex1
+SELECT * FROM languages LEFT JOIN frameworks ON languages.id = frameworks.languagesId;
+
+//Ex2
+SELECT * FROM languages RIGHT JOIN frameworks ON languages.id = frameworks.languagesId;
+
+//Ex3
+SELECT languages.name,COUNT(*) FROM languages LEFT JOIN frameworks ON languages.id = frameworks.languagesId GROUP BY languages.name;
+
+//Ex4
+SELECT languages.name,COUNT(*) FROM languages LEFT JOIN frameworks ON languages.id = frameworks.languagesId  GROUP BY languages.name HAVING COUNT(*)>3 ORDER BY COUNT(*) DESC ;
+
+//PARTIE8
+//-------------------------------------------------------------------------------------
+//-------------------------------------------------------------------------------------
+//Ex1
+SELECT * FROM employees;
+
+//Ex2->Ex6
+C'est pareil, flemme.
+
+//Ex7
+SELECT * FROM departments WHERE dept_name LIKE "%en%";
+
+//Ex8
+SELECT DISTINCT title FROM titles ORDER BY title;
+
+//Ex10
+SELECT COUNT(*) FROM departments;
+
+//Ex11
+SELECT COUNT(*) FROM departments WHERE dept_name LIKE "%en%";
